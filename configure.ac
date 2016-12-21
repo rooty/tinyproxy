@@ -194,11 +194,6 @@ dnl
 dnl Make sure we can actually handle the "--with-*" and "--enable-*" stuff.
 dnl
 
-dnl Handle the REGEX library
-if test x"$ac_cv_func_regexec" != x"yes"; then
-    AC_MSG_ERROR([Could not locate the regexec() function])
-fi
-
 dnl
 dnl Substitute the variables into the various Makefiles
 dnl
