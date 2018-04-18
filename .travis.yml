@@ -1,21 +1,19 @@
 sudo: required
 dist: trusty
-
 addons:
   apt:
     packages:
     - cmake
     - time
-    
 jobs:
   include:
-    - script: echo "Running unit tests (1)"
-    - stage: GitHub Release
-      script: ./autogen.sh
-      script: ./configure 
-      #deploy:
-      #    provider: releases
-      #    api_key: "$GITHUB_OAUTH_TOKEN"
-      #    skip_cleanup: true
-      #    on:
-      #      tags: true
+  - script: echo "Running unit tests (1)"
+  - stage: GitHub Release
+    script: "./configure"
+deploy:
+  provider: releases
+  api_key:
+    secure: lWNpFpWmbaauO5h2MQz60sgnX06Kazd2S4GBWLBIVDPaJtHNTP4NW2HX77hxkwDS67ViDg9tHOTnuXzhm/JCcSjk8eTlhoLn/4gQcojnG32RBMa7bWsqEpum6GkkBnXPhVx8+/0cuyErLULhu38mCifI/zkjWlcnAWkMmIwP638ZSY94s+n4npg8Fci3EZRj6c9vUNphv+63CgJ+6UNuUQ210ft+X60AFf2sWjtPz0fIrb1J+3rvgbh3gOTn3WlFMSCRbFNa7vsqCj3pLwyDWB17FmSaNGYImRsilY0Xe69AZGFAlIvFkMR69siGakcTaliM+d+BgkrXbVme+T7lUFvf9Oh0q1yG/RAZXfwiUyleJLM+7A4Q4gZfzMenHHFk29Sl9mElN3LXrpVaAe7Hq0E4l/t8pu7j6nIpRzlx7sEi4ZZWYdFi87E/9lUzstk7Pwv1FUgCMJ548ymFFhDKlZvPq/dLH1ZBArwDl/uJ5Sv0zRSVRA1hg9pSdXSyqkfYp4yTsVb7JDE4IIafolgfZSmkcG2CK9mdQO5L21fxjPyHHJ3MXTozJKjuLSi61W+KvrdGCMEetrheHynz4qqvvqXO2ynJL7v6Ue0qm4ETXak1VpW5z2X8ZjzPHDVflucJgdsfHTfG8umjDNGW4R0A6OTo8Sy8GawRqYd5BsbHk7A=
+  file: tinyproxy
+  on:
+    repo: rooty/tinyproxy
