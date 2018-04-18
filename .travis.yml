@@ -1,12 +1,10 @@
 sudo: required
 dist: trusty
-jobs:
-  include:
-  - stage: Tests
-  - script: echo "Running unit tests (1)"
-  - stage: GitHub Release
-    script: "./autogen.sh"
-    script: "./configure"
+stages:
+    - name: test
+        script: echo "Running unit tests (1)"
+    - name: GitHub Release
+	script: "./autogen.sh"
 deploy:
   provider: releases
   api_key:
