@@ -12,7 +12,7 @@ jobs:
     - script: echo "Running unit tests (1)"
     - stage: GitHub Release
       script: ./autogen.sh
-      script: make 
+      script: ./configure 
       #deploy:
       #    provider: releases
       #    api_key: "$GITHUB_OAUTH_TOKEN"
