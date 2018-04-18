@@ -1,14 +1,11 @@
 sudo: required
 dist: trusty
-addons:
-  apt:
-    packages:
-    - cmake
-    - time
 jobs:
   include:
+  - stage: Tests
   - script: echo "Running unit tests (1)"
   - stage: GitHub Release
+    script: "./autogen.sh"
     script: "./configure"
 deploy:
   provider: releases
